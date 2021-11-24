@@ -1,14 +1,3 @@
-# Operowanie na dużych zbiorach danych staje się zdecydowanie łatwiejsze dzięki
-# stronicowaniu. Dodaj tę funkcjonalność do poniższej klasy, wiedząc że API
-# przyjmuje zapytania POST i PUT zawierające maksymalnie 20 obiektów i zwraca
-# wyniki zapytań GET w paczkach po 40. Dokumentację znajdziesz na $DOMAIN/docs.
-#
-# Autoryzacja dostępu do API jest dwustopniowa:
-#  1. ze ścieżki /login/aws uwierzytelnionej przez HTTP Basic Access (sekrety w
-#     pliku credentials.conf.base64) uzyskasz token o określonym czasie ważności
-#  2. wszystkie pozostałe ścieżki uwierzytelniane są przez podanie w nagłówku
-#     Authorization ciągu "Bearer <access_token>"
-#
 from datetime import datetime, timedelta
 from functools import lru_cache
 from typing import Dict, List, Optional

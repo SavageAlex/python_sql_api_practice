@@ -1,6 +1,3 @@
-# Poniższy kod ma za zadanie synchronizować dane o zapasach produktowych pobrane
-# z API sklepu z bazą SQL służącą do ich monitorowania. Czy widzisz w nim jakieś
-# problemy? Jeżeli tak, to jakie i jak je poprawić?
 import datetime
 import logging
 import os
