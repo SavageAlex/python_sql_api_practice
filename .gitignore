@@ -1,0 +1,7 @@
+*.sqlite
+*.conf
+*.log
+*~
+.*~
+*.swp
+.*swp
