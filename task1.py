@@ -8,5 +8,6 @@ HTTP_HEADERS = {
 
 sql = connect(database="database.sqlite")
 
+# Insert your code here
 
 sql.close()
