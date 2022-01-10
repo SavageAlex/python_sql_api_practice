@@ -10,8 +10,7 @@ sql = connect(database="database.sqlite")
 
 # Insert your code here
 
-from time import sleep
-from datetime import datetime, timedelta
+from datetime import datetime
 from requests.auth import HTTPBasicAuth
 from requests import request
 from os.path import abspath, dirname, join
