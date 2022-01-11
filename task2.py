@@ -1,18 +1,7 @@
 import datetime
-import logging
-import os
-import pickle
-import traceback
 from json import *
-from sqlite3 import connect, Error
+from sqlite3 import connect
 from time import *
-
-# import boto3
-# import mysql.connector as mysqlConnector
-# import numpy
-# import pandas as pd
-# import pydantic
-# import redis
 from requests import request
 
 USE_SUPPLY_LIST = [1]
@@ -39,11 +28,11 @@ for target in PRODUCT_LIST:
                                 "INSERT INTO product_stocks "
                                 "(time, product_id, variant_id, stock_id, supply) "
                                 "VALUES ('{}', {}, {}, {}, {})".format(
-                                str(datetime.datetime.now())[:19],
-                                product["id"],
-                                supply["variant_id"],
-                                stock_data["stock_id"],
-                                stock_data["quantity"]
+                                    str(datetime.datetime.now())[:19],
+                                    product["id"],
+                                    supply["variant_id"],
+                                    stock_data["stock_id"],
+                                    stock_data["quantity"]
                                 )
                             )
                             sql.commit()
