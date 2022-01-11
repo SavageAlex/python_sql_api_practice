@@ -46,11 +46,7 @@ authorization = {"Authorization": f"Bearer {access_token}"}
 AUTH_HTTP_HEADERS = {**HTTP_HEADERS, **authorization}
 
 request_all = {
-    "detailed": True,
-    "pagination": {
-        "page_size": 40,
-        "index": 0
-    }
+    "detailed": True
 }
 
 response_products = request(
@@ -67,6 +63,13 @@ if response_products.status_code != 200:
     exit(2)
 
 products = response_products.json()["result"]
+
+page_count = response_products.json()["page_count"]
+if page_count != 0:
+    for page in range(1, page_count):
+        pagination_dict = dumps({"pagination": {"index": page}})                
+        page_response_list = request("GET", f"{DOMAIN}/products", data=pagination_dict, headers=AUTH_HTTP_HEADERS).json()["result"]
+        products += page_response_list
 
 print(f" - [OK] {len(products)} products data received")
 
